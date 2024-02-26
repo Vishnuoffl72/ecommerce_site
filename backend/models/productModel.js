@@ -25,7 +25,7 @@ const productSchema = new mongoose.Schema({
 
     images:[
         {
-            filename:{
+            image:{
                 type:String,
                 required:true
             }
@@ -92,3 +92,7 @@ const productSchema = new mongoose.Schema({
         default: Date.now()
     }
 })
+
+let modelSchema=mongoose.model('Product', productSchema)
+
+module.exports = modelSchema
