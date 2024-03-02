@@ -28,6 +28,11 @@ module.exports=(err,req,res,next)=>{
             error = new ErrorHandler(message)
         }
 
+        if(err.code== 11000){
+            let message = `Duplicate ${Object.keys(err.keyValue)} error`
+            error = new ErrorHandler(message)
+        }
+
         res.status(err.statusCode).json({
             success:false,
             message:error.message || "internal server error"
