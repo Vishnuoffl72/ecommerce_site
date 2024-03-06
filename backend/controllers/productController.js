@@ -6,7 +6,7 @@ const catchAsyncError = require('../middlewares/catchAsyncError')
 
 //Get products - http://localhost:8000/api/v1/products
 exports.getProducts =async (req,res,next)=>{
-    const resPerPage= 2
+    const resPerPage= 4
     const apiFeatures =new APIFeatures(Product.find(), req.query).search().filter().paginate(resPerPage)
 
     const products= await apiFeatures.query
